@@ -1,0 +1,71 @@
+%%
+%% 研究報告用スイッチ（情報処理学会用ファイルをEC2018用に変更）
+%% [techreq]
+%%
+%% 欧文表記無しのスイッチ(etitle,jkeyword,eabstract,ekeywordは任意)
+%% [noauthor]
+%%
+
+%\documentclass[submit,techreq,noauthor]{ec2019}
+%%英文著者名を表示させる場合は次のとおり，noauthorオプションを外してください．
+%%英文タイトル，英文アブストラクトの表示は任意です．
+\documentclass[submit,techreq]{ec2019}
+
+
+\usepackage[dvipdfmx]{graphicx}
+\usepackage{latexsym}
+
+
+\usepackage{latexsym}
+\usepackage[dvipdfmx]{graphicx}
+\graphicspath{{./figs/}{./suppl/}}      % グラフィックを置いたディレクトリを自動で補完する
+
+\usepackage{balance}
+\usepackage{float}                      % 図表が記述位置から飛ばないためのパッケージ
+\usepackage{comment}                    % ブロックコメントを作成する
+\usepackage[switch,columnwise]{lineno}  % 行番号表示（主に添削用
+
+%% src path を勝手に include する
+\makeatletter
+\providecommand*{\input@path}{}
+\g@addto@macro\input@path{{./src/}{./suppl/}}% append
+\makeatother
+
+\def\Underline{\setbox0\hbox\bgroup\let\\\endUnderline}
+\def\endUnderline{\vphantom{y}\egroup\smash{\underline{\box0}}\\}
+\def\|{\verb
+|}
+
+\setcounter{巻数}{57}%vol53=2012
+\setcounter{号数}{10}
+\setcounter{page}{1}
+
+
+\begin{document}
+
+\input{preface}
+\maketitle
+
+%1
+\input{introduce}
+%2
+\input{relatedworks}
+%3
+\input{proposal}
+%4
+%\input{constitution}
+%5
+\input{experiment}
+
+%\input{result}
+%6
+%\input{end}
+
+\bibliographystyle{ipsjunsrt}
+\bibliography{src/bib}
+%\input{src/bib}
+
+\input{appendix}
+\input{bio}
+
+\end{document}
